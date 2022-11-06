@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "yg-jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: yg-jalnan;
+  list-style-type: none;
+}
+.container{
+  border: 1px solid #000;
+  min-height: 100vh;
+}
+.jeju-sec{
+  width: 1480px;
+  border: 3px solid #000;
+  margin: 50px auto;
+  display: flex;
+}
+ .tit-txt{
+  font-size: 36px;
+  color: tomato;
+  border: 1px solid #000;
+  width: fit-content;
+  margin: 80px auto;
+  padding: 20px;
+}
+.jeju-sec .list-oreum{
+  border: 1px solid #000;
+  margin: 100px 0;
+  float: left;
+  width: 254px;
+}
+.jeju-sec .list-oreum li{
+  padding: 12px;
+  border: 1px solid #000;
+}
