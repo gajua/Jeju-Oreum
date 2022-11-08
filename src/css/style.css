@@ -5,24 +5,18 @@
   font-weight: normal;
   font-style: normal;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: yg-jalnan;
   list-style-type: none;
 }
-.container{
+.container {
   border: 1px solid #000;
   min-height: 100vh;
 }
-.jeju-sec{
-  width: 1480px;
-  border: 3px solid #000;
-  margin: 50px auto;
-  display: flex;
-}
- .tit-txt{
+.tit-txt {
   font-size: 36px;
   color: tomato;
   border: 1px solid #000;
@@ -30,22 +24,43 @@
   margin: 40px auto 0px;
   padding: 20px;
 }
-.jeju-sec .list-oreum{
+.jeju-sec {
+  width: 1480px;
+  border: 3px solid #000;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.jeju-sec .list-oreum {
   border: 1px solid #000;
   margin: 100px 0;
   float: left;
   width: 254px;
 }
-.jeju-sec .list-oreum li{
+.jeju-sec .list-oreum li {
   padding: 12px;
   border: 1px solid #000;
 }
-.imgBox img{
-  height: 400px;
+
+.imgBox{
+  width: 100%;
   border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgBox img {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #000;
+
 }
 
-footer{
+
+
+
+/* footer */
+footer {
   border: 5px solid #000;
   background-color: #666;
   color: #fff;
@@ -55,8 +70,7 @@ footer{
   align-items: center;
   flex-direction: column;
 }
-footer h2{
-
+footer h2 {
   width: 1480px;
-border-bottom: 1px solid #999;
+  border-bottom: 1px solid #999;
 }
