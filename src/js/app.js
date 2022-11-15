@@ -1,66 +1,3 @@
-// https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D
-const arr =[]
-const marker = [
-  {
-    Name: "KIS",
-    lat: 33.289631,
-    lng: 126.283982,
-  },
-  {
-    Name: "NLCS",
-    lat: 33.297159,
-    lng: 126.288322,
-  },
-  {
-    Name: "BHA",
-    lat: 33.291213,
-    lng: 126.287798,
-  },
-  {
-    Name: "SJA",
-    lat: 33.283767,
-    lng: 126.283465,
-  },
-];
-
-const data = marker;
-function initMap() {
-  const jeju = { lat: 33.3616658, lng: 126.5204118 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 11,
-    center: jeju,
-  });
-console.log(data);
-  new google.maps.Marker({
-    position: jeju,
-    map: map,
-  });
-
-  new google.maps.Marker({
-    position: { lat: data[0]["lat"], lng: data[0]["lng"] },
-    map: map,
-  });
-
-  new google.maps.Marker({
-    position: { lat: data[1]["lat"], lng: data[1]["lng"] },
-    map: map,
-  });
-
-  new google.maps.Marker({
-    position: { lat: data[2]["lat"], lng: data[2]["lng"] },
-    map: map,
-  });
-
-  new google.maps.Marker({
-    position: { lat: data[3]["lat"], lng: data[3]["lng"] },
-    map: map,
-  });
-  const infowindow = new google.maps.InfoWindow({
-    content: "Hello <br> World!",
-  });
-  infowindow.open(map, marker);
-}
-
 class OreumList {
   constructor() {
     this.oreumList = document.querySelector(".list-oreum");
@@ -84,13 +21,41 @@ class OreumList {
 
   jejuOreum(data) {
     const docFrag = document.createDocumentFragment("li");
-    data.data.forEach((el) => {
-      arr.push(el);
-    });
-    console.log(arr.slice(0, 10));
-  }
-  initMap(){
 
+    const jeju = { lat: 33.3616658, lng: 126.5204118 };
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 11,
+      center: jeju,
+    });
+    const pos = data.data;
+    const infowindow = new google.maps.InfoWindow();
+
+    for (let i = 0; i < pos.length; i++) {
+      // console.log(pos[i].경도);
+      let 오름명 = pos[i].오름명;
+      let 설명 = pos[i].설명;
+      let 위도 = Number(pos[i].위도);
+      let 경도 = Number(pos[i].경도);
+      let marker = new google.maps.Marker({
+        position: {
+          lat: 위도,
+          lng: 경도,
+        },
+        map: map,
+      });
+      marker.addListener("click", () => {
+        console.log(설명);
+        map.setCenter(markerPosition);
+
+      });
+      marker.addListener('mouseover', ()=>{
+        const infowindow = new google.maps.InfoWindow({
+          content:오름명,
+        });
+        infowindow.open(map, marker);
+      })
+      
+    }
   }
 }
 
