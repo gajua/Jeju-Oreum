@@ -44,15 +44,14 @@ class OreumList {
         map: map,
       });
       marker.addListener("click", () => {
-        console.log(설명);
-        map.setCenter(markerPosition);
-
+        map.panTo(marker.position);
       });
       marker.addListener('mouseover', ()=>{
         const infowindow = new google.maps.InfoWindow({
-          content:오름명,
+          // content:오름명,
         });
         infowindow.open(map, marker);
+        infowindow.setContent(오름명)
       })
       
     }
