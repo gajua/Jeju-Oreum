@@ -46,14 +46,13 @@ class OreumList {
       marker.addListener("click", () => {
         map.panTo(marker.position);
       });
-      marker.addListener('mouseover', ()=>{
-        const infowindow = new google.maps.InfoWindow({
-          // content:오름명,
-        });
+      marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
         infowindow.setContent(오름명)
-      })
-      
+    });
+      marker.addListener('mouseout', function() {
+        infowindow.close();
+    });
     }
   }
 }
