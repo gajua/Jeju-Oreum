@@ -31,7 +31,6 @@ class OreumList {
     const infowindow = new google.maps.InfoWindow();
 
     for (let i = 0; i < pos.length; i++) {
-      // console.log(pos[i].경도);
       let 오름명 = pos[i].오름명;
       let 설명 = pos[i].설명;
       let 위도 = Number(pos[i].위도);
@@ -45,6 +44,7 @@ class OreumList {
       });
       marker.addListener("click", () => {
         map.panTo(marker.position);
+        console.log(오름명+': ' +설명);
       });
       marker.addListener('mouseover', function() {
         infowindow.open(map, marker);
