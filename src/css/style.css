@@ -36,9 +36,15 @@
   margin: 100px 0;
   float: left;
   width: 254px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .jeju-sec .list-oreum li {
   padding: 12px;
+  width: 400px;
+  margin: 0 auto;
+  width: ;
   border: 1px solid #000;
 }
 
