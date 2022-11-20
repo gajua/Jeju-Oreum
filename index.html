@@ -10,17 +10,9 @@
   <body>
     <div class="container">
       <h1 class="tit-txt">제주 오름? 오름!</h1>
-      <main class="jeju-sec">
-        <ul class="list-oreum">
-          <li><p>오름이름 1</p></li>
-          <li><p>오름이름 2</p></li>
-          <li><p>오름이름 3</p></li>
-          <li><p>오름이름 4</p></li>
-          <li><p>오름이름 5</p></li>
-          <li><p>오름이름 6</p></li>
-          <li><p>오름이름 7</p></li>
-          <li><p>오름이름 8</p></li>
-          <li><p>오름이름 9</p></li>
+      <main class="jeju-sec" data-info="">
+        <ul class="list-oreum" id="">
+          <!-- <li><p>오름이름 </p></li> -->
         </ul>
         <ul class="pagination">
           <li><a href="#" class="prev">&#60; prev </a></li>
@@ -33,7 +25,7 @@
           <li><a href="#" class="next"> Next &#62;</a></li>
         </ul>
       </main>
-      <div class="modal">
+      <div class="modal none">
         <div class="mapBox" id="map"></div>
       </div>
       <footer>
@@ -43,7 +35,6 @@
       </footer>
     </div>
     <script src="./src/js/app.js"></script>
-    <script src="./src/js/test.js"></script>
     <script
       async
       defer

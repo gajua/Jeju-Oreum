@@ -1,3 +1,9 @@
+async function loadData(){
+  const response = await fetch('https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=90&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D')
+  const data = await response.json()
+  return data
+}
+
 class OreumList {
   constructor() {
     this.oreumList = document.querySelector(".list-oreum");
@@ -10,7 +16,7 @@ class OreumList {
 
   async loadData(callback) {
     const response = await fetch(
-      "https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=90&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D"
+      "https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D"
     );
     if (response.ok) {
       callback(await response.json());
@@ -21,7 +27,7 @@ class OreumList {
 
   jejuOreum(data) {
     const docFrag = document.createDocumentFragment("li");
-
+    
     const jeju = { lat: 33.3616658, lng: 126.5204118 };
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 11,
@@ -42,6 +48,20 @@ class OreumList {
         },
         map: map,
       });
+
+
+      const li = document.createElement('li')
+      li.innerHTML=`<p>${오름명}</p>`
+      li.data
+
+      this.oreumList.appendChild(li)
+
+
+      function info (e){
+        const modal = document.querySelector('.modal')
+        modal.classList.toggle('none')
+      }
+      li.addEventListener('click',info)
       marker.addListener("click", () => {
         map.panTo(marker.position);
         console.log(오름명+': ' +설명);
@@ -54,6 +74,7 @@ class OreumList {
         infowindow.close();
     });
     }
+
   }
 }
 

@@ -63,7 +63,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.none {
+  display: none;
+}
 
 /* pagenation */
 .pagination{
@@ -111,11 +113,16 @@
 
 
 .modal{
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
   border: 1px solid #000;
   width: 800px;
   background-color: tomato;
   margin: 0 auto;
   height: 1000px;
+  box-shadow:0 0 15px 10px rgba(0, 0, 0, .2);
 }
 .modal .mapBox{
   width: 100%;
