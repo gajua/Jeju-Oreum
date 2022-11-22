@@ -1,6 +1,10 @@
 const modal = document.querySelector(".modal");
 const modalText = document.querySelector(".text");
 const oreumNameList = document.querySelector(".oreum-name");
+// const pageNumber = pagination.querySelectorAll(".pageNumber");
+
+
+
 class OreumList {
   constructor() {
     this.oreumList = document.querySelector(".list-oreum");
@@ -13,7 +17,7 @@ class OreumList {
 
   async loadData(callback) {
     const response = await fetch(
-      "https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D"
+      `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D`
     );
     if (response.ok) {
       callback(await response.json());
@@ -48,7 +52,7 @@ class OreumList {
 
       function info(e) {
         modal.classList.toggle("none");
-        modalText.innerHTML = `${오름명} : ${설명}`;
+        modalText.innerHTML = `<h3>${오름명}</h3>  ${설명}`;
         const 위치 = { lat: 위도, lng: 경도 };
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
