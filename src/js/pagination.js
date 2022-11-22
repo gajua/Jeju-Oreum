@@ -12,7 +12,7 @@ function paging(e) {
   e.currentTarget.classList.add('active')
 
 
-  let first = e.currentTarget.textContent
   let last = (e.currentTarget.textContent)*10
+  let first = last-9
   console.log(first, last);
 }
