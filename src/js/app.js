@@ -1,23 +1,20 @@
-const modal = document.querySelector(".modal");
-const modalText = document.querySelector(".text");
-const oreumNameList = document.querySelector(".oreum-name");
-// const pageNumber = pagination.querySelectorAll(".pageNumber");
-
-
-
-class OreumList {
+export class OreumList {
   constructor() {
+    this.modal = document.querySelector(".modal");
+    this.modalText = document.querySelector(".text");
+    // this.oreumNameList = document.querySelector(".oreum-name");
     this.oreumList = document.querySelector(".list-oreum");
   }
-  async setup() {
+  async setup(pageNum) {
     await this.loadData((json) => {
       this.jejuOreum(json);
-    });
+      // console.dir(oreumList.oreumList.children);
+    },pageNum);
   }
 
-  async loadData(callback) {
+  async loadData(callback, pageNum) {
     const response = await fetch(
-      `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D`
+      `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=${pageNum}&perPage=10&serviceKey=3MCBWEYPV4%2BY4Un8XqdBpFBiaGQKGsEVpC1HIK1DCoHqjNlhaUGcwjBIJGDYeTaTOiG4GKJorKXpGpfNpOEjhQ%3D%3D`
     );
     if (response.ok) {
       callback(await response.json());
@@ -48,18 +45,18 @@ class OreumList {
       li.data;
 
       this.oreumList.appendChild(li);
-      li.addEventListener("click", info);
+      li.addEventListener("click", info.bind(this));
 
       function info(e) {
-        modal.classList.toggle("none");
-        modalText.innerHTML = `<h3>${오름명}</h3>  ${설명}`;
+        this.modal.classList.toggle("none");
+        this.modalText.innerHTML = `<h3>${오름명}</h3>  ${설명}`;
         const 위치 = { lat: 위도, lng: 경도 };
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
           center: 위치,
         });
         const test = pos.find(
-          (el) => el.오름명 === this.firstChild.textContent
+          (el) => el.오름명 === 오름명
         );
 
         let marker = new google.maps.Marker({
@@ -88,6 +85,3 @@ class OreumList {
     }
   }
 }
-
-const oreumList = new OreumList();
-oreumList.setup();
