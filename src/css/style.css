@@ -29,12 +29,24 @@
   min-height: 100vh;
 }
 .tit-txt {
+  position: relative;
   font-size: 36px;
   color: tomato;
   border: 1px solid #000;
   width: fit-content;
   margin: 40px auto 0px;
   padding: 20px;
+}
+.tit-txt::before{
+  content: '';
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  z-index: -10;
+  width: 500px;
+  height: 700px;
+  background-image: url(../img/사람1.png);
+  background-size: cover;
 }
 .jeju-sec {
   width: 1480px;
@@ -51,14 +63,17 @@
   width: 254px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
   width: 100%;
 }
 .jeju-sec .list-oreum li {
   position: relative;
-  margin: 25px auto 0;
+  margin: 25px 50px 0;
   padding: 12px;
   height: 400px;
-  width: 400px;
+  width: 300px;
   border: 1px solid #000;
   cursor: pointer;
 }
