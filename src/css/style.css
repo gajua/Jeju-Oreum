@@ -12,17 +12,17 @@
   font-family: yg-jalnan;
   list-style-type: none;
 }
-.ir{
-  position: absolute; 
-  margin: -1px; 
+.ir {
+  position: absolute;
+  margin: -1px;
   width: 1px;
   height: 1px;
   padding: 0;
   border: 0;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%); 
+  clip-path: inset(50%);
 }
 .container {
   border: 1px solid #000;
@@ -37,11 +37,11 @@
   margin: 40px auto 0px;
   padding: 20px;
 }
-.tit-txt::before{
-  content: '';
-  position: fixed;
-  top: 10%;
-  left: 5%;
+.tit-txt::before {
+  content: "";
+  position: absolute;
+  /* top: 10%; */
+  /* left: 5%; */
   z-index: -10;
   width: 500px;
   height: 700px;
@@ -139,6 +139,7 @@
 } */
 
 .modal {
+  position: relative;
   position: fixed;
   top: 100px;
   left: 50%;
@@ -146,11 +147,26 @@
   overflow: hidden;
   border: 1px solid #000;
   width: 800px;
-  border-radius: 15px;
-  background-color: tomato;
+  border-radius: 0 0 15px 15px;
+  color: #fff;
+  background-color: #3b3b3b;
   margin: 0 auto;
   height: 800px;
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
+}
+.modal .closeBtn{
+  right: 1px;
+  bottom: 1px;
+  position: absolute;
+  z-index: 10;
+  font-size: 16px;
+  box-sizing: content-box;
+  padding: 10px 24px;
+  border: 2px solid tomato;
+  color: tomato;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 3px rgba(255, 255, 255, .2);
 }
 .modal .mapBox {
   width: 100%;
@@ -160,7 +176,7 @@
   height: 30%;
   padding: 20px;
 }
-.modal .text h3{
+.modal .text h3 {
   font-size: 1.5em;
 }
 /* footer */

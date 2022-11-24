@@ -1,3 +1,5 @@
+const container = document.querySelector(".container");
+const closeBtn = document.querySelector(".closeBtn");
 export class OreumList {
   constructor() {
     this.modal = document.querySelector(".modal");
@@ -9,7 +11,7 @@ export class OreumList {
     await this.loadData((json) => {
       this.jejuOreum(json);
       // console.dir(oreumList.oreumList.children);
-    },pageNum);
+    }, pageNum);
   }
 
   async loadData(callback, pageNum) {
@@ -43,21 +45,21 @@ export class OreumList {
       const li = document.createElement("li");
       li.innerHTML = `<p class='oreum-name'>${오름명}</p>`;
       li.data;
-
+      closeBtn.addEventListener("click", () => {
+        this.modal.classList.add("none");
+      });
       this.oreumList.appendChild(li);
       li.addEventListener("click", info.bind(this));
-
       function info(e) {
-        this.modal.classList.toggle("none");
+        this.modal.classList.remove("none");
+        
         this.modalText.innerHTML = `<h3>${오름명}</h3>  ${설명}`;
         const 위치 = { lat: 위도, lng: 경도 };
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
           center: 위치,
         });
-        const test = pos.find(
-          (el) => el.오름명 === 오름명
-        );
+        const test = pos.find((el) => el.오름명 === 오름명);
 
         let marker = new google.maps.Marker({
           position: {
@@ -79,7 +81,6 @@ export class OreumList {
         marker.addListener("mouseout", function () {
           infowindow.close();
         });
-
         // this.firstChild
       }
     }
