@@ -25,31 +25,86 @@
   clip-path: inset(50%);
 }
 .container {
-  border: 1px solid #000;
   min-height: 100vh;
 }
-.tit-txt {
+.logo{
+ 
+  width: calc(100% - 1100px);
   position: relative;
-  font-size: 36px;
-  color: tomato;
-  border: 1px solid #000;
+  display: inline-block;
+  padding: 30px;
+  height: 220px;
+  text-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  /* background:linear-gradient(  skyblue, #fff); */
+  color: #fff;
+  vertical-align: bottom;
+}
+.logo-img{
+  position: absolute;
+  width: 300px;
+  top: -110px;
+  left: -110px;
+}
+.logo h1{
+  font-size: 3em;
   width: fit-content;
-  margin: 40px auto 0px;
+  float: right;
+}
+.logo p {
+  float: right;
+  width: 350px;
+}
+.header{
+  position: relative;
+  width: 1680px;
+  margin: 100px auto;
+  height: 640px;
+  background:linear-gradient(skyblue, #03a9f4 20%);
+}
+.header-img{
+  width: 1100px;
+  height: 100%;
+  float: right;
+  z-index: 100;
+}
+.info{
+position: absolute;
+bottom: 10%;
+right: 25%;
+font-size: 1.3em;
+color: #fff;
+}
+.tit-txt {
+  position: absolute;
+  font-size:12em;
+  width: 100%;
+  height: calc(100% - 220px);
+  user-select:none;
   padding: 20px;
 }
-.tit-txt::before {
+.tit-txt:nth-child(2){
+  z-index: 10;
+  color: tomato;
+  background-color: #03a9f4;
+  clip-path: polygon(00% 10%,34.5% 10%,34.5% 100%,0% 100%);
+ 
+}
+.tit-txt:nth-child(3){
+  color: #fff;
+  -webkit-text-stroke: 5px #333;
+}
+/* .tit-txt::before {
   content: "";
   position: absolute;
-  /* top: 10%; */
-  /* left: 5%; */
   z-index: -10;
   width: 500px;
   height: 700px;
   background-image: url(../img/사람1.png);
   background-size: cover;
-}
+} */
 .jeju-sec {
-  width: 1480px;
+  width: 1680px;
   border: 3px solid #000;
   margin: 50px auto;
   display: flex;
@@ -152,6 +207,7 @@
   background-color: #3b3b3b;
   margin: 0 auto;
   height: 800px;
+  z-index: 1000;
   box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2);
 }
 .modal .closeBtn{

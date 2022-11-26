@@ -73,16 +73,37 @@ export class OreumList {
           map.panTo(marker.position);
         });
 
-        marker.addListener("mouseover", function () {
-          infowindow.open(map, marker);
-          infowindow.setContent(오름명);
-        });
+        // marker.addListener("mouseover", function () {
+        //   infowindow.open(map, marker);
+        //   // infowindow.setContent(오름명);
+        // });
 
-        marker.addListener("mouseout", function () {
-          infowindow.close();
-        });
-        // this.firstChild
+        // marker.addListener("mouseout", function () {
+        //   infowindow.close();
+        // });
+        // // this.firstChild
       }
     }
   }
 }
+// let tit1 = document.querySelector('.tit1')
+
+// window.addEventListener('scroll', function(){
+//   let value = window.scrollY;
+//   tit1.style.clipPath = "circle("+value * 1.5+"px at 0% 50%)"
+// })
+
+const images = [
+  "1.jpg",
+  "2.jpg",
+  "3.jpg",
+  "4.jpg",
+  "5.jpg",
+]
+const chosenImage = images[Math.floor(Math.random() * images.length)]
+
+const bgImage = document.querySelector(".header-img")
+
+bgImage.src = `/src/img/${chosenImage}`
+
+
