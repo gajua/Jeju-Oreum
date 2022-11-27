@@ -18,7 +18,6 @@ async function paging(oreumList, e) {
   e.currentTarget.classList.add("active");
 
   let pageNum = e.currentTarget.textContent;
-  console.log(pageNum);
 
   oreumList.oreumList.innerHTML = ``
 

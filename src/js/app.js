@@ -4,13 +4,11 @@ export class OreumList {
   constructor() {
     this.modal = document.querySelector(".modal");
     this.modalText = document.querySelector(".text");
-    // this.oreumNameList = document.querySelector(".oreum-name");
     this.oreumList = document.querySelector(".list-oreum");
   }
   async setup(pageNum) {
     await this.loadData((json) => {
       this.jejuOreum(json);
-      // console.dir(oreumList.oreumList.children);
     }, pageNum);
   }
 
@@ -73,25 +71,11 @@ export class OreumList {
           map.panTo(marker.position);
         });
 
-        // marker.addListener("mouseover", function () {
-        //   infowindow.open(map, marker);
-        //   // infowindow.setContent(오름명);
-        // });
-
-        // marker.addListener("mouseout", function () {
-        //   infowindow.close();
-        // });
-        // // this.firstChild
       }
     }
   }
 }
-// let tit1 = document.querySelector('.tit1')
 
-// window.addEventListener('scroll', function(){
-//   let value = window.scrollY;
-//   tit1.style.clipPath = "circle("+value * 1.5+"px at 0% 50%)"
-// })
 
 const images = [
   "1.jpg",
