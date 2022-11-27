@@ -104,6 +104,6 @@ const chosenImage = images[Math.floor(Math.random() * images.length)]
 
 const bgImage = document.querySelector(".header-img")
 
-bgImage.src = `/src/img/${chosenImage}`
+bgImage.src = `./src/img/${chosenImage}`
 
 
