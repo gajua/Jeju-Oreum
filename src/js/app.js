@@ -43,7 +43,7 @@ export class OreumList {
       let 경도 = Number(pos[i].경도);
 
       const li = document.createElement("li");
-      li.innerHTML = `<p class='oreum-name'>${오름명}</p>`;
+      li.innerHTML = `<img class="oreum-img" src="./src/img/오름 일러스트.jpg" ><p class='oreum-name'>${오름명}</p>`;
       li.data;
       closeBtn.addEventListener("click", () => {
         this.modal.classList.add("none");
